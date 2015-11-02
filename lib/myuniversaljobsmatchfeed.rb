@@ -103,5 +103,12 @@ class MyUniversalJobsMatchFeed < DailyNotices
     yield() if block_given?
     
   end
+  
+  private
+  
+  def create_link(id)
+    [File.join(@url_base, File.basename(@filepath), \
+                                            @archive_path, id)].join('/')
+  end  
 
 end
