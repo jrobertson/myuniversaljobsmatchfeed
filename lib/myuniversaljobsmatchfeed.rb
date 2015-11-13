@@ -10,7 +10,7 @@ require 'myuniversaljobsmatch'
 class MyUniversalJobsMatchFeed < DailyNotices
 
   def initialize(filepath='', title: nil, where: nil, url_base: '', \
-                  dx_xslt: '', rss_xslt: '', refreshrate: nil, target_xslt: '')
+                  dx_xslt: nil, rss_xslt: nil, refreshrate: nil, target_xslt: '')
 
     @schema = 'ujm[title,tags]/item(job_id, title, description, ' + \
                    'posting_date, company, location, industries, ' + \
@@ -57,9 +57,10 @@ class MyUniversalJobsMatchFeed < DailyNotices
     
     capture = ->(result) do
       vacancy = @ujm.query result[:job_id]
+
       
       self.add(vacancy, title: vacancy[:title], \
-             description: vacancy[:description], id: vacancy[:job_id]) do |kvx|
+             description: vacancy[:description], id: vacancy[:job_id].rstrip) do |kvx|
         kvx.summary[:title] = vacancy[:title]
       end      
     end
