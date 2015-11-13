@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'myuniversaljobsmatchfeed'
-  s.version = '0.1.2'
+  s.version = '0.1.3'
   s.summary = 'Generates an RSS feed for the search results from the myuniversaljobsmatch gem'
   s.authors = ['James Robertson']
   s.files = Dir['lib/myuniversaljobsmatchfeed.rb']

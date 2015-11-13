@@ -81,7 +81,7 @@ class MyUniversalJobsMatchFeed < DailyNotices
       
     else
       
-      results.all.each(&capture)
+      results.all.reverse.each(&capture)
               
       results.save results_filepath
       on_change()      
